@@ -184,14 +184,19 @@ def transform_code_widgets():
                 html_label = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.XPATH, "//label[span[normalize-space()='Treat Output as HTML']]"))
                 )
-                html_label.click()
+                driver.execute_script("arguments[0].scrollIntoView(true);", html_label)
+                time.sleep(0.5)
+                driver.execute_script("arguments[0].click();", html_label)
                 print("Clicked 'Treat Output as HTML'.")
 
                 transform_label = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.XPATH, "//label[span[contains(normalize-space(),'Transform Output')]]"))
                 )
-                transform_label.click()
+                driver.execute_script("arguments[0].scrollIntoView(true);", transform_label)
+                time.sleep(0.5)
+                driver.execute_script("arguments[0].click();", transform_label)
                 print("Clicked 'Transform Output / Extract API Keys'.")
+
 
                 WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, ".OutputTransformModal_outputTransformModal__6RtNN .ace_editor"))
