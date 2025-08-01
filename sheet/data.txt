@@ -1,1 +1,20 @@
-SQL Output Testing
+CREATE, DROP, and USE Databases
+CREATE, DROP, and INSERT Table
+The SELECT Clause
+The WHERE Clause
+The AND & OR Clauses
+Aggregate Functions in SQL
+ORDER BY & GROUP BY
+The HAVING Clause
+Alias Syntax
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+Exercise 1
+Solution to Exercise 1
+Exercise 2
+Solution to Exercise 2
+Exercise 3
+Solution to Exercise 3
+Exercise 4
+Solution to Exercise 4

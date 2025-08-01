@@ -4,11 +4,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pickle
 import time
-import csv
 
 COOKIE_FILE = "../login/educative_cookies.pkl"
-COURSE_SLUG = "learn-sql-from-scratch"
-CSV_FILE_PATH = "../sheet/data.csv"
+COURSE_SLUG = "database-design-fundamentals"
+OUTPUT_FILE = "../sheet/data.txt"
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
@@ -62,25 +61,21 @@ def get_all_lesson_links():
 
 def count_sql_widgets():
     try:
-        # Find all "Run" buttons via span inside button
         run_buttons = driver.find_elements(By.XPATH, '//button[.//span[normalize-space()="Run"]]')
         return len(run_buttons)
     except:
         return 0
 
 def process_lessons(lesson_links):
-    with open(CSV_FILE_PATH, 'w', encoding='utf-8', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["Lesson Title", "Run Button Count"])  # header
-
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         for idx, (lesson_title, link) in enumerate(lesson_links):
             driver.get(link)
             print(f"[{idx+1}/{len(lesson_links)}] Checking lesson: {lesson_title}")
-            time.sleep(3)
+            time.sleep(7)  # Wait for page to fully load
             run_count = count_sql_widgets()
             print(f"➡️  Found {run_count} SQL widget(s) in: {lesson_title}")
             if run_count > 0:
-                writer.writerow([lesson_title, run_count])
+                f.write(f"{lesson_title}\n")
 
 # --- MAIN EXECUTION ---
 login_with_cookies()
