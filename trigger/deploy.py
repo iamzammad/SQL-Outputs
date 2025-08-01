@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import UnexpectedAlertPresentException
-from selenium.webdriver.common.action_chains import ActionChains
 import pickle
 import time
 
@@ -128,38 +127,27 @@ def go_to_edit_mode():
     while attempt < max_attempts:
         try:
             print("Attempting to enter Edit mode...")
-            # Check if already in edit mode
             if driver.find_elements(By.XPATH, "//button[.//span[normalize-space()='Preview']]"):
                 print("Already in Edit mode.")
                 return
-
-            # Try clicking the Edit button
             edit_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[.//span[contains(text(), 'Edit')]]"))
             )
             driver.execute_script("arguments[0].scrollIntoView(true);", edit_button)
             time.sleep(1)
             edit_button.click()
-            print("Clicked Edit button.")
-
-            # Wait for Preview button to confirm successful mode switch
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, "//button[.//span[normalize-space()='Preview']]"))
             )
             print("Entered Edit mode successfully.")
             return
-
         except UnexpectedAlertPresentException:
             handle_unexpected_alert()
-
         except Exception as e:
             print(f"Edit mode attempt {attempt + 1} failed: {e}")
-
         attempt += 1
         time.sleep(2)
-
     print("Failed to enter Edit mode after multiple attempts.")
-
 
 def transform_code_widgets():
     try:
@@ -168,10 +156,8 @@ def transform_code_widgets():
             EC.presence_of_element_located((By.XPATH, '//button[contains(., "Run")]'))
         )
         print("Found at least one Run button.")
-
         run_buttons = driver.find_elements(By.XPATH, '//button[contains(., "Run")]')
         print(f"Found {len(run_buttons)} SQL code widget(s).")
-
         for i, run_btn in enumerate(run_buttons):
             try:
                 print(f"\nProcessing widget #{i+1}")
@@ -180,7 +166,6 @@ def transform_code_widgets():
                 time.sleep(0.5)
                 editable_div.click()
                 time.sleep(1)
-
                 html_label = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.XPATH, "//label[span[normalize-space()='Treat Output as HTML']]"))
                 )
@@ -188,7 +173,6 @@ def transform_code_widgets():
                 time.sleep(0.5)
                 driver.execute_script("arguments[0].click();", html_label)
                 print("Clicked 'Treat Output as HTML'.")
-
                 transform_label = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.XPATH, "//label[span[contains(normalize-space(),'Transform Output')]]"))
                 )
@@ -196,13 +180,10 @@ def transform_code_widgets():
                 time.sleep(0.5)
                 driver.execute_script("arguments[0].click();", transform_label)
                 print("Clicked 'Transform Output / Extract API Keys'.")
-
-
                 WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, ".OutputTransformModal_outputTransformModal__6RtNN .ace_editor"))
                 )
                 print("Transform Output modal loaded.")
-
                 js_code = f"""
                 const modal = document.querySelector('.OutputTransformModal_outputTransformModal__6RtNN');
                 if (modal) {{
@@ -215,8 +196,6 @@ def transform_code_widgets():
                 """
                 driver.execute_script(js_code)
                 print("Injected outputTransform code into modal.")
-
-                # Wait for Save button inside modal and click
                 modal = driver.find_element(By.CSS_SELECTOR, ".OutputTransformModal_outputTransformModal__6RtNN")
                 modal_save_btn = WebDriverWait(modal, 10).until(
                     EC.element_to_be_clickable((By.XPATH, ".//button[contains(@class, 'outlined-default') and starts-with(normalize-space(text()), 'Save')]"))
@@ -225,14 +204,25 @@ def transform_code_widgets():
                 time.sleep(1)
                 modal_save_btn.click()
                 print("Clicked Save button in modal.")
-
-                print("Clicked Save button in modal.")
                 time.sleep(2)
-
             except Exception as e:
                 print(f"Failed to process widget #{i+1}: {e}")
     except Exception as e:
         print(f"Error scanning widgets: {e}")
+
+def save_final_lesson():
+    try:
+        print("Attempting to click final Save* button after processing widgets...")
+        save_btn = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'items-center')]//button[.//span[normalize-space()='Save*']]"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", save_btn)
+        time.sleep(0.5)
+        save_btn.click()
+        print("Clicked final Save* button.")
+        time.sleep(2)
+    except Exception as e:
+        print(f"Failed to click final Save* button: {e}")
 
 # Main Flow
 login_with_cookies()
@@ -240,16 +230,18 @@ login_with_cookies()
 with open(LESSON_FILE, "r", encoding="utf-8") as f:
     lines = [line.strip() for line in f if line.strip()]
     if lines:
-        first_lesson = lines[0]
-        editor_url = find_editor_link_by_lesson_name(first_lesson)
-        if editor_url:
-            driver.get(editor_url)
-            print(f"Opened: {first_lesson}")
-            time.sleep(3)
-            go_to_edit_mode()
-            transform_code_widgets()
-        else:
-            print(f"Lesson not found in editor list: {first_lesson}")
+        for i in range(len(lines)):
+            current_lesson = lines[i]
+            editor_url = find_editor_link_by_lesson_name(current_lesson)
+            if editor_url:
+                driver.get(editor_url)
+                print(f"Opened: {current_lesson}")
+                time.sleep(3)
+                go_to_edit_mode()
+                transform_code_widgets()
+                save_final_lesson()
+            else:
+                print(f"Lesson not found in editor list: {current_lesson}")
 
 input("Press Enter to close the browser...")
 driver.quit()

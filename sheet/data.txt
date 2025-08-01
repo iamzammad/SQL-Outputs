@@ -1,12 +1,1 @@
-Embark on the SQL Adventures
-Selecting Display Fields and Specifying the Data Source
-Fetching Unique Results
-Specifying the Filter Criteria
-Working with String Data Type
-Logical Operators and Compound Conditions
-Sorting Data
-Data Aggregation and Grouping
-Putting It All Together
-Creating Tables
-Adding New Data to the Database
-Modifying Data
+The First Use Case
