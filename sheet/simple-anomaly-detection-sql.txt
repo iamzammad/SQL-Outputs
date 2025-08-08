@@ -1,0 +1,10 @@
+What are Anomalies?
+Understanding Z-score
+Optimizing Z-score
+Preparing the Data
+Identifying Anomalies
+Finding Past Anomalies
+Adding Thresholds
+Eliminating Repeating Alerts
+Weighted Mean
+Median

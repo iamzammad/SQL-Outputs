@@ -6,18 +6,18 @@ from selenium.common.exceptions import UnexpectedAlertPresentException
 import pickle
 import time
 
-COOKIE_FILE = "../login/educative_cookies.pkl"
-INITIAL_EDITOR_URL = "https://www.educative.io/editor/pageeditor/10370001/5119687241236480/6109440912654336"
+COOKIE_FILE = "../login/auto_cookies.pkl"
+INITIAL_EDITOR_URL = "https://www.educative.io/editor/pageeditor/10370001/4858319607431168/6617020928360448"
 LESSON_FILE = "../sheet/data.txt"
 
 output_transform_code = """
 function outputTransform(stdout, stderr) {
   const res_out = `
     <div style="display: flex; justify-content: center; font-family:'Inter', sans-serif;">
-      <div style="overflow-y: auto; border: 1px solid #ccc;">
+      <div style="overflow-y: auto;">
         <img src="/udata/WPdLXmr8eGo/QueryExecutedSuccessfully.png"
              alt="No record found, it's empty as space."
-             style="display: block;" />
+             style="max-width: 300px; height: auto; margin: auto;" />
       </div>
     </div>`;
 

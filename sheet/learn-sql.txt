@@ -1,0 +1,38 @@
+Say “Hello” to the Table
+Project: Say “Hello” to the Table
+Pick the Columns You Want
+Project: Pick the Columns You Want
+Find the Rows That Matter
+Project: Find the Rows That Matter
+Use Comparisons and Logic
+Project: Use Comparisons and Logic
+Sort the Answers
+Project: Sort the Answers
+Project: Help a Pet Lover
+Do Math with Your Data
+Project: Do Math with Your Data
+Group Things Together
+Project: Group Things Together
+Only Keep Interesting Groups
+Project: Only Keep Interesting Groups
+Ask Questions About Questions
+Project: Find the Top Performers
+Create a Table
+Project: Create a Table
+Add Some Data
+Project: Add Some Data
+Fix Mistakes
+Project: Fix Mistakes
+Design Better Tables
+Project: Design Better Tables
+Project: Build a Student Tracker
+Meet the JOIN Family
+Project: Meet the JOIN Family
+Connect Two Tables
+Project: Connect Two Tables
+Go Multi-Level
+Build a Mini Dashboard
+Project: Build a Mini Dashboard
+Project: Library Tracker
+Project: Compute Student CGPA
+Final Project: Build a Game Leaderboard

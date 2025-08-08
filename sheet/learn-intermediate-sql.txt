@@ -1,0 +1,24 @@
+Embark on an SQL Adventure!
+Selecting Display Fields and Specifying the Data Source
+Fetching Unique Results
+Specifying the Filter Criteria
+Working with the String Data Type
+Logical Operators and Compound Conditions
+Sorting Data
+Data Aggregation and Grouping
+Putting It All Together
+Creating Tables
+Adding New Data to the Database
+Modifying Data
+Adding New Fields in a Table
+Performing Calculations and Aliasing
+Managing Computed Attributes
+Data Redundancy
+Dealing with Redundancy
+Some Pitfalls
+Foreign Keys and Database Relationships
+Merging Data from Multiple Tables
+The JOIN Clause
+Using JOIN to Retrieve Information from More than Two Tables
+Using JOIN to Generate Our Reports
+Subqueries

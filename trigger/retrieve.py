@@ -6,7 +6,7 @@ import pickle
 import time
 
 COOKIE_FILE = "../login/educative_cookies.pkl"
-COURSE_SLUG = "database-design-fundamentals"
+COURSE_SLUG = "simple-anomaly-detection-sql"
 OUTPUT_FILE = "../sheet/data.txt"
 
 options = webdriver.ChromeOptions()
