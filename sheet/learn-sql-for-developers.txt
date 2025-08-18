@@ -1,0 +1,24 @@
+What Is SQL?
+Creating Databases and Tables
+Basic Data Retrieval
+Inserting Data
+The WHERE Clause
+Updating and Deleting Data
+Pattern Matching
+Range and List Filtering
+Sorting Results
+Limiting Results
+Introduction to Aggregate Functions
+Grouping Data
+Filtering Groups
+Advanced Aggregations
+Joining Tables
+Subqueries
+Working with Views
+String Functions
+Date Functions
+Nesting Functions
+Table Modifications
+Managing Indexes
+Query Database Information
+Database Operations

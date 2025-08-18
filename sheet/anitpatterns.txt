@@ -1,0 +1,57 @@
+Antipattern: Format Comma-Separated Lists
+Solution: Create an Intersection Table
+Antipattern: Always Depend on One’s Parent
+Maintaining a Tree with an Adjacency List
+Path Enumeration
+Nested Sets
+Closure Table
+Synopsis: ID Required
+Antipattern: One Size Fits All
+Solution: Tailored to Fit
+Antipattern: Leave Out the Constraints
+Synopsis: Entity-Attribute-Value
+Antipattern: Use a Generic Attribute Table
+Supporting Data Integrity
+Solution: Model the Subtypes Using Inheritance
+Suboptimal Solutions
+Synopsis: Polymorphic Associations
+Antipattern: Use Dual-Purpose Foreign Key
+Solution 1: Simplify the Relationship
+Solution 2: Create a Common Super-Table
+Antipattern: Create Multiple Columns
+Solution: Create Dependent Table
+Antipattern: Clone Tables or Columns
+Solution: Partition and Normalize
+Synopsis: Rounding Errors
+Antipattern: Use FLOAT Data Type
+Solution: Use NUMERIC Data Type
+Synopsis: 31 Flavors
+Antipattern: Specify Values in the Column Definition
+Solution: Specify Values in Data
+Solution: Use BLOB Data Types As Needed
+Antipattern: Using Indexes Without a Plan
+Solution: MENTOR Your Indexes
+Synopsis: Fear of the Unknown
+Antipattern: Use Null as an Ordinary Value, or Vice Versa
+Solution: Use NULL as a Unique Value
+Synopsis: Ambiguous Groups
+Antipattern: Reference Non-grouped Columns
+Solution: Use Columns Unambiguously
+Antipattern: Sort Data Randomly
+Solution: In No Particular Order
+Antipattern: Pattern Matching Predicates
+Solution: Use the Right Tool for the Job
+Alternatives To Make Text Searchable
+Synopsis: Spaghetti Query
+Antipattern: Solve a Complex Problem in One Step
+Solution: Divide and Conquer
+Synopsis: Implicit Columns
+Antipattern: A Shortcut That Gets You Lost
+Solution: Name Columns Explicitly
+Antipattern: Store Password in Plain Text
+Solution: Store a Salted Hash of the Password
+Antipattern: Execute Unverified Input As Code
+The Quest for a Cure
+Solution: Trust No One
+Antipattern: Filling in the Corners
+Antipattern: Making Bricks Without Straw

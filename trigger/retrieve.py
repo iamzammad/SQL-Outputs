@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import pickle
 import time
 
-COOKIE_FILE = "../login/educative_cookies.pkl"
-COURSE_SLUG = "sql-interview-preparation"
+COOKIE_FILE = "../login/auto_cookies.pkl"
+COURSE_SLUG = "mastering-postgre-sql-databases-from-basics-to-advanced"
 OUTPUT_FILE = "../sheet/data.txt"
 
 options = webdriver.ChromeOptions()

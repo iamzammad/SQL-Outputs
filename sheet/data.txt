@@ -1,0 +1,31 @@
+Basic Data Definition Commands
+Advanced Data Definition Commands to Alter Tables
+Advanced Data Definition Commands to Alter Columns
+Data Types in SQL
+Retrieving Data from Tables
+Arithmetic and Comparison Operators in SQL
+Logical Operators in SQL
+Data Manipulation Commands
+Data Presentation
+Using Indexes to Improve Query Performance
+Working with Complex Data Types
+Regular Expressions in SQL
+Working with Views in PostgreSQL
+Stored Procedures and Functions
+Triggers
+Sequences
+Transactions, Locks, and Deadlocks
+Configuring the PostgreSQL Server
+Routine Database Maintenance in PostgreSQL
+Securing PostgreSQL Installation
+Granting and Revoking Privileges
+Using Data Encryption
+Trigger-Based Replication
+Primary-Secondary Replication
+Bidirectional Replication
+Identifying the Bottlenecks
+Query Tuning
+Monitoring PostgreSQL Performance
+Setting Up Backup and Recovery
+Upgrading to a Newer Version of PostgreSQL
+Installing PostgreSQL

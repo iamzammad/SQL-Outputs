@@ -7,7 +7,7 @@ import pickle
 import time
 
 COOKIE_FILE = "../login/auto_cookies.pkl"
-INITIAL_EDITOR_URL = "https://www.educative.io/editor/pageeditor/10370001/5527714579218432/6498483315539968"
+INITIAL_EDITOR_URL = "https://www.educative.io/editor/pageeditor/6586453712175104/6204127315230720/5990508390514688"
 LESSON_FILE = "../sheet/data.txt"
 
 output_transform_code = """
